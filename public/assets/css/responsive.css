@@ -107,11 +107,11 @@
     min-height: 530px;
   }
 
-  .key_innner .owl-nav button.owl-next {
+  .key_innner .swiper-button-next {
     right: -15px;
   }
 
-  .key_innner .owl-nav button.owl-prev {
+  .key_innner .swiper-button-prev {
     left: -15px;
   }
 
@@ -135,10 +135,8 @@
     font-size: 40px;
   }
 
-  .text_list_section .owl-stage,
-  .text_list_section .owl-stage-outer,
-  .textFlow_list .owl-stage,
-  .textFlow_list .owl-stage-outer {
+  .text_list_section .swiper-wrapper,
+  .textFlow_list .swiper-wrapper {
     height: 45px;
   }
 
@@ -156,7 +154,7 @@
   }
 
   .blog_listings .listing_block .blog_text {
-    padding: 0 20px;
+    /* padding: 0 20px; */
   }
 
   /* =======Sign In Page Css Start================ */
@@ -518,11 +516,11 @@
     padding: 50px 0;
   }
 
-  .our_value_section .owl-nav button.owl-next {
+  .our_value_section .swiper-button-next {
     right: -15px;
   }
 
-  .our_value_section .owl-nav button.owl-prev {
+  .our_value_section .swiper-button-prev {
     left: -15px;
   }
 
@@ -625,7 +623,8 @@
   }
 
   .blog_listings .listing_block .blog_text {
-    width: calc(100% - 375px);
+    /* width: calc(100% - 375px); */
+    padding: 30px 0 20px 0;
   }
 
   .blog_listings .listing_block .blog_text h2 {
@@ -792,11 +791,11 @@
     min-height: auto;
   }
 
-  .interface_section .owl-item .screen_frame_img img {
+  .interface_section .swiper-slide .screen_frame_img img {
     transform: scale(1);
   }
 
-  .interface_section .owl-dots {
+  .interface_section .swiper-pagination {
     margin-top: 30px;
   }
 
@@ -847,10 +846,8 @@
     margin-bottom: 30px;
   }
 
-  .text_list_section .owl-stage,
-  .text_list_section .owl-stage-outer,
-  .textFlow_list .owl-stage,
-  .textFlow_list .owl-stage-outer {
+  .text_list_section .swiper-wrapper,
+  .textFlow_list .swiper-wrapper {
     height: 35px;
   }
 
@@ -1155,11 +1152,11 @@
     margin-top: 30px;
   }
 
-  .our_value_section .owl-nav button.owl-next {
+  .our_value_section .swiper-button-next {
     right: -12px;
   }
 
-  .our_value_section .owl-nav button.owl-prev {
+  .our_value_section .swiper-button-prev {
     left: -12px;
   }
 
@@ -1359,6 +1356,7 @@
 
   .articles_section .section_title h2 {
     font-size: 26px;
+    margin-bottom: 25px;
   }
 
   .articles_section .filter_tags {
@@ -1367,7 +1365,7 @@
   }
 
   .blog_listings .listing_block {
-    flex-direction: column;
+    /* flex-direction: column; */
     padding: 30px;
   }
 
@@ -1387,7 +1385,7 @@
   }
 
   .blog_listings .listing_block:not(:last-child) {
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
   }
 
   .pagination_block {

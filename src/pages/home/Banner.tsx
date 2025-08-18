@@ -1,5 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { ImagePath } from "../../constants";
+import { BannerSliderSetting } from "../../data";
 
 const HomeBanner = () => {
   return (
@@ -28,7 +29,7 @@ const HomeBanner = () => {
               <p>Lorem Ipsum is simply dummy text of the printing indus orem Ipsum has been the industrys.</p>
             </div>
             {/* users */}
-            <div className="used_app">
+            {/* <div className="used_app">
               <ul>
                 <li>
                   <img src={`${ImagePath}banavt1.png`} alt="image" />
@@ -49,7 +50,7 @@ const HomeBanner = () => {
               <p>
                 The best application to manage your <br /> customer worldwide
               </p>
-            </div>
+            </div> */}
             {/* app buttons */}
             <ul className="app_btn">
               <li>
@@ -57,11 +58,11 @@ const HomeBanner = () => {
                   <img className="blue_img" src={`${ImagePath}googleplay_dark.png`} alt="image" />
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a href="#">
                   <img className="blue_img" src={`${ImagePath}appstorebtn_dark.png`} alt="image" />
                 </a>
-              </li>
+              </li> */}
             </ul>
           </div>
           {/* banner slides start */}
@@ -73,20 +74,26 @@ const HomeBanner = () => {
               <div className="right_icon">
                 <img src={`${ImagePath}bigstar.png`} alt="image" />
               </div>
-              <Swiper loop={true} autoplay={{ delay: 3000, disableOnInteraction: false }} pagination={{ clickable: true }} className="owl-carousel owl-theme">
-                <SwiperSlide>
-                  <img src={`${ImagePath}bannerScreen.png`} alt="image" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img src={`${ImagePath}bannerScreen2.png`} alt="image" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img src={`${ImagePath}bannerScreen3.png`} alt="image" />
-                </SwiperSlide>
-              </Swiper>
               <div className="slider_frame">
                 <img src={`${ImagePath}iphonescren.png`} alt="image" />
               </div>
+              <Swiper {...BannerSliderSetting} className="banner-swiper" id="frmae_slider">
+                <SwiperSlide>
+                  <div className="slider_img">
+                    <img src={`${ImagePath}bannerScreen.png`} alt="image" />
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <div className="slider_img">
+                    <img src={`${ImagePath}bannerScreen2.png`} alt="image" />
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <div className="slider_img">
+                    <img src={`${ImagePath}bannerScreen3.png`} alt="image" />
+                  </div>
+                </SwiperSlide>
+              </Swiper>
             </div>
           </div>
           {/* banner slides end */}

@@ -1,0 +1,65 @@
+/* Custom Swiper Styles */
+
+/* Hide default Swiper navigation arrows and use custom ones */
+.swiper-button-prev,
+.swiper-button-next {
+  background: none !important;
+  border: none !important;
+  width: 30px !important;
+  height: 30px !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.3s ease !important;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 16px !important;
+  font-weight: bold !important;
+  color: inherit !important;
+}
+
+/* Custom pagination bullets */
+.swiper-pagination-bullet {
+  width: 12px !important;
+  height: 12px !important;
+  background: transparent !important;
+  border: 2px solid currentColor !important;
+  opacity: 1 !important;
+  transition: all 0.3s ease !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: currentColor !important;
+  transform: scale(1.2) !important;
+}
+
+/* Banner specific styles */
+.banner-swiper .swiper-pagination {
+  position: relative !important;
+  /* margin-top: 30px !important; */
+}
+
+.banner-swiper .swiper-pagination-bullet {
+  border-color: var(--bg-white) !important;
+  color: var(--bg-white) !important;
+}
+
+.banner-swiper .swiper-pagination-bullet-active {
+  background: var(--bg-white) !important;
+}
+
+/* Ensure Swiper slides are properly sized */
+.swiper-slide {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.swiper-slide img {
+  max-width: 100% !important;
+  height: auto !important;
+  display: block !important;
+}

@@ -1,4 +1,5 @@
-import { ImagePath } from "../../constants";
+import { Link, Route } from "react-router-dom";
+import { ImagePath, ROUTES } from "../../constants";
 
 const Footer = () => {
   return (
@@ -44,7 +45,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a href="#">
-                    <i className="icofont-twitter" />
+                    <i className="icofont-whatsapp" />
                   </a>
                 </li>
                 <li>
@@ -54,7 +55,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a href="#">
-                    <i className="icofont-pinterest" />
+                    <i className="icofont-linkedin" />
                   </a>
                 </li>
               </ul>
@@ -87,19 +88,10 @@ const Footer = () => {
             </div>
             <ul className="links">
               <li>
-                <a href="index.html">Home</a>
+                <Link to={ROUTES.WORKSHOP.WORKSHOP}>Workshop</Link>
               </li>
               <li>
-                <a href="about.html">About us</a>
-              </li>
-              <li>
-                <a href="pricing.html">Pricing</a>
-              </li>
-              <li>
-                <a href="blog-list.html">Blog</a>
-              </li>
-              <li>
-                <a href="contact.html">Contact us</a>
+                <Link to={ROUTES.COURSE.COURSE}>Courses</Link>
               </li>
             </ul>
             <div className="design_by">
