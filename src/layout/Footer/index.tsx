@@ -1,9 +1,10 @@
+import { ImagePath } from "../../constants";
 
 const Footer = () => {
   return (
     <footer className="white_text" data-aos="fade-in" data-aos-duration={1500}>
       <div className="footer_overlay">
-        <img src="images/overlay-bg2-reverse.svg" alt="img" />{" "}
+        <img src={`${ImagePath}overlay-bg2-reverse.svg`} alt="img" />
       </div>
       <div className="container">
         <div className="row">
@@ -11,7 +12,7 @@ const Footer = () => {
             <div className="logo_side">
               <div className="logo">
                 <a href="#">
-                  <img src="images/ft_logo.png" alt="Logo" />
+                  <img src={`${ImagePath}ft_logo.png`} alt="Logo" />
                 </a>
               </div>
               <div className="news_letter">
@@ -65,12 +66,12 @@ const Footer = () => {
               <ul className="app_btn">
                 <li>
                   <a href="#">
-                    <img className="blue_img" src="images/googleplay.png" alt="image" />
+                    <img className="blue_img" src={`${ImagePath}googleplay.png`} alt="image" />
                   </a>
                 </li>
                 <li>
                   <a href="#">
-                    <img className="blue_img" src="images/appstorebtn.png" alt="image" />
+                    <img className="blue_img" src={`${ImagePath}appstorebtn.png`} alt="image" />
                   </a>
                 </li>
               </ul>
