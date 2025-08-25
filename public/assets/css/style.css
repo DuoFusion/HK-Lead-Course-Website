@@ -651,7 +651,7 @@ header.fixed .navbar {
   padding-bottom: 200px;
   position: relative;
   background: var(--gradient);
-  overflow-x:hidden ;
+  overflow-x: hidden;
 }
 
 .banner_section::before {
@@ -3291,6 +3291,9 @@ footer .download_side .app_btn li a img {
 .blog_listings .listing_block .img img {
   width: 100%;
   border-radius: 20px;
+  height: 300px;
+  object-position: center;
+  object-fit: cover;
 }
 
 .blog_listings .listing_block .blog_text {
@@ -4094,4 +4097,40 @@ footer .download_side .app_btn li a img {
   background-color: var(--bg-white);
   z-index: -5;
   border-radius: 30px;
+}
+
+/* Pagination ant */
+.ant-pagination .ant-pagination-item {
+  margin-inline-end: 0px !important;
+}
+
+.ant-pagination .ant-pagination-item a {
+  display: block;
+  padding: 10px 15px;
+  background-color: var(--bg-white);
+  color: var(--dark-black);
+  border-radius: 5px;
+  transition: 0.4s all;
+  line-height: 1;
+}
+.ant-pagination .ant-pagination-item-active {
+  border-color: transparent !important;
+}
+
+.ant-pagination .ant-pagination-item-active a {
+  background-color: var(--primery);
+  color: var(--text-white);
+}
+.ant-pagination-item-link {
+  width: 50px;
+  padding: 10px !important;
+}
+.ant-pagination .ant-pagination-jump-prev .ant-pagination-item-container .ant-pagination-item-link-icon,
+.ant-pagination .ant-pagination-jump-next .ant-pagination-item-container .ant-pagination-item-link-icon {
+  color: var(--text-white);
+}
+
+.ant-rate-star svg{
+  width: 17px !important;
+  height: 17px !important;
 }

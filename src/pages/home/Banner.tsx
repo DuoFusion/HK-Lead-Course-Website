@@ -1,8 +1,14 @@
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Queries } from "../../api";
 import { ImagePath } from "../../constants";
 import { BannerSliderSetting } from "../../data";
 
 const HomeBanner = () => {
+
+  const { data: Banner } = Queries.useGetBanner({bannerFilter:"hero"});
+  const All_Banner = Banner?.data?.banner_data;
+console.log("All_Banner",All_Banner);
+
   return (
     <section className="banner_section white_text">
       <div className="star-bg">

@@ -1,14 +1,34 @@
 export const KEYS = {
-  LOGIN: "admin-login",
-  SEND_PASSWORD_EMAIL: "forgot-password-request",
-  VERIFY_OTP: "verify-otp",
-  RESET_PASSWORD: "reset-password",
-  ChANGE_PASSWORD: "change-password",
-
-  CATEGORY: {
-    ALL: "category",
-    ADD: "add-category",
-    EDIT: "edit-category",
-    DELETE: "delete-category",
+  WORKSHOP: {
+    ALL: "workshop",
+    SINGLE: "workshop-single",
+  },
+  BANNER: {
+    ALL: "banner",
+  },
+  MENTORS: {
+    ALL: "mentors",
+  },
+  ABOUT: {
+    ALL: "about",
+  },
+  TESTOMONIALS: {
+    ALL: "testomonials",
+  },
+  FAQ: {
+    ALL: "faq",
+  },
+  LEAD_FORM: {
+    Add: "add-lead-form",
+  },
+  WEB_SETTING: {
+    ALL: "web-setting",
+  },
+  COURSES_REGISTER: {
+    ADD: "add-course-register",
+  },
+  WORKSHOP_REGISTER: {
+    ADD: "add-workshop-register",
   },
 } as const;
+//

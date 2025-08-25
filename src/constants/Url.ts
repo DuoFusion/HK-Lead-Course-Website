@@ -1,18 +1,36 @@
 export const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const URL = {
-  AUTH: {
-    LOGIN: "/auth/login",
-    FORGOT_PASSWORD: "/auth/forgot_password",
-    VERIFY_OTP: "/auth/verify_otp",
-    RESET_PASSWORD: "/auth/reset_password",
-    CHANGE_PASSWORD: "/auth/change-password",
+  WORKSHOP: {
+    ALL: "/workshop",
+    SINGLE: "/workshop",
   },
-  CATEGORY: {
-    ALL: "/category",
-    ADD: "/category/add",
-    EDIT: "/category/edit",
-    DELETE: "/category/delete",
+  BANNER: {
+    ALL: "/banner",
+  },
+  MENTORS: {
+    ALL: "/mentors",
+  },
+  ABOUT: {
+    ALL: "/about",
+  },
+  TESTOMONIALS: {
+    ALL: "/testomonial",
+  },
+  FAQ: {
+    ALL: "/faq",
+  },
+  LEAD_FORM: {
+    Add: "/lead-form/add",
+  },
+  WEB_SETTING: {
+    ALL: "/web-setting",
+  },
+  COURSES_REGISTER: {
+    ADD: "/workshop-register/add",
+  },
+  WORKSHOP_REGISTER: {
+    ADD: "/course-register/add",
   },
 } as const;
 

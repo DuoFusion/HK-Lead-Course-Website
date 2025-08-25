@@ -1,8 +1,13 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { ImagePath } from "../../constants";
 import { MentorSliderSetting } from "../../data";
+import { Queries } from "../../api";
+import { Link } from "react-router-dom";
 
 const Mentors = () => {
+  const { data: Mentors } = Queries.useGetMentors();
+  const All_Mentors = Mentors?.data?.mentors_data;
+
   const mentors = [
     {
       img: "team_01.png",
@@ -26,8 +31,6 @@ const Mentors = () => {
     },
   ];
 
-
-
   return (
     <section className="row_am experts_team_section">
       <div className="container">
@@ -40,29 +43,44 @@ const Mentors = () => {
 
         {/* Swiper Start */}
         <Swiper {...MentorSliderSetting}>
-          {mentors.map((mentor, index) => (
+          {All_Mentors?.map((mentor, index) => (
             <SwiperSlide key={index}>
               <div className="experts_box" data-aos="fade-up" data-aos-duration={1500} data-aos-delay={(index + 1) * 100}>
-                <img src={`${ImagePath}${mentor.img}`} alt={mentor.name} />
+                <img src={mentor.image ?? `${ImagePath}team_01.png`} alt={mentor.name} />
                 <div className="text">
                   <h3>{mentor.name}</h3>
                   <span>{mentor.role}</span>
+                  <br />
+                  {mentor.experience && <span>{mentor.experience}</span>}
                   <ul className="social_media">
-                    <li>
-                      <a href="#">
-                        <i className="icofont-facebook" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i className="icofont-twitter" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i className="icofont-instagram" />
-                      </a>
-                    </li>
+                    {mentor.socialMedia?.facebook && (
+                      <li>
+                        <Link to={mentor.socialMedia.facebook}>
+                          <i className="icofont-facebook" />
+                        </Link>
+                      </li>
+                    )}
+                    {mentor.socialMedia?.x && (
+                      <li>
+                        <Link to={mentor.socialMedia.x}>
+                          <i className="icofont-twitter" />
+                        </Link>
+                      </li>
+                    )}
+                    {mentor.socialMedia?.instagram && (
+                      <li>
+                        <Link to={mentor.socialMedia.instagram}>
+                          <i className="icofont-instagram" />
+                        </Link>
+                      </li>
+                    )}
+                    {mentor.socialMedia?.linkedin && (
+                      <li>
+                        <Link to={mentor.socialMedia.linkedin}>
+                          <i className="icofont-linkedin" />
+                        </Link>
+                      </li>
+                    )}
                   </ul>
                 </div>
               </div>

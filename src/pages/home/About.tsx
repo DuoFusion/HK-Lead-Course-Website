@@ -1,6 +1,8 @@
 import React from "react";
+import { Queries } from "../../api";
 
 const About = () => {
+  const { data: About } = Queries.useGetAbout();
   return (
     <section className="about_us_section">
       {/* <div className="container">
@@ -22,7 +24,7 @@ const About = () => {
             </h2>
           </div>
           <div className="col-md-7">
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry lorem Ipsu m has been the industrys standard dummy text ever since the when an unknown print er took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining esse ntially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing soft ware like Aldus PageMaker including versions of lorem Ipsum.</p>
+            <p dangerouslySetInnerHTML={{ __html: About?.data?.aboutUs || "" }}/>
           </div>
         </div>
       </div>

@@ -1,6 +1,10 @@
+import { Rate } from "antd";
+import { Queries } from "../../api";
 import { ImagePath } from "../../constants";
 
 const Testimonials = () => {
+  const { data: Testomonials } = Queries.useGetTestomonials();
+  const All_Testomonials = Testomonials?.data?.testomonial_data;
   return (
     <section className="review_section row_am">
       <div className="container">
@@ -52,64 +56,38 @@ const Testimonials = () => {
             </div>
             <div className="col-md-6">
               <div className="review_side">
-                <div className="review_block" data-aos="fade-up" data-aos-duration={1500}>
-                  <div className="coustomer_info">
-                    <div className="avtar">
-                      <img src={`${ImagePath}review1.png`} alt="image" />
-                      <div className="text">
-                        <h3>Willium Joy</h3>
-                        <span>Smartbrain Tech</span>
+                {All_Testomonials?.filter((item) => [1, 2, 3].includes(item?.priority || 1)).map((item, index) => (
+                  <div className="review_block" data-aos="fade-up" data-aos-duration={1500} key={index}>
+                    <div className="coustomer_info">
+                      <div className="avtar">
+                        <img src={item.image ?? `${ImagePath}review1.png`} alt="image" />
+                        <div className="text">
+                          <h3>{item.name}</h3>
+                          {item.role && <span>{item.role}</span>}
+                        </div>
                       </div>
+                        <Rate allowHalf defaultValue={item.rating} />
+                      {/* <div className="star">
+                        <span>
+                          <i className="icofont-star" />
+                        </span>
+                        <span>
+                          <i className="icofont-star" />
+                        </span>
+                        <span>
+                          <i className="icofont-star" />
+                        </span>
+                        <span>
+                          <i className="icofont-star" />
+                        </span>
+                        <span>
+                          <i className="icofont-star" />
+                        </span>
+                      </div> */}
                     </div>
-                    <div className="star">
-                      <span>
-                        <i className="icofont-star" />
-                      </span>
-                      <span>
-                        <i className="icofont-star" />
-                      </span>
-                      <span>
-                        <i className="icofont-star" />
-                      </span>
-                      <span>
-                        <i className="icofont-star" />
-                      </span>
-                      <span>
-                        <i className="icofont-star" />
-                      </span>
-                    </div>
+                    <p>{item?.message}</p>
                   </div>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente culpa, dolores ullam laudantium deleniti ipsa qui saepe voluptatum nam pariatur? Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, totam.</p>
-                </div>
-                <div className="review_block" data-aos="fade-up" data-aos-duration={1500}>
-                  <div className="coustomer_info">
-                    <div className="avtar">
-                      <img src={`${ImagePath}review2..png`} alt="image" />
-                      <div className="text">
-                        <h3>John Due</h3>
-                        <span>Corporate Agency</span>
-                      </div>
-                    </div>
-                    <div className="star">
-                      <span>
-                        <i className="icofont-star" />
-                      </span>
-                      <span>
-                        <i className="icofont-star" />
-                      </span>
-                      <span>
-                        <i className="icofont-star" />
-                      </span>
-                      <span>
-                        <i className="icofont-star" />
-                      </span>
-                      <span>
-                        <i className="icofont-star" />
-                      </span>
-                    </div>
-                  </div>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente culpa, dolores ullam laudantium deleniti ipsa qui saepe voluptatum nam pariatur? Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur et, nemo distinctio eum omnis quam!</p>
-                </div>
+                ))}
                 <div className="review_block" data-aos="fade-up" data-aos-duration={1500}>
                   <div className="coustomer_info">
                     <div className="avtar">

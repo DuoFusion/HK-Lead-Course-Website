@@ -1,7 +1,11 @@
-import { Link, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { Queries } from "../../api";
 import { ImagePath, ROUTES } from "../../constants";
 
 const Footer = () => {
+  const { data } = Queries.useGetWebSetting();
+  const WebSetting = data?.data;
+
   return (
     <footer className="white_text" data-aos="fade-in" data-aos-duration={1500}>
       <div className="footer_overlay">
@@ -31,33 +35,41 @@ const Footer = () => {
               </div>
               <ul className="contact_info">
                 <li>
-                  <a href="mailto:">support@example.com</a>
+                  <a href="mailto:">{WebSetting?.email}</a>
                 </li>
                 <li>
-                  <a href="tel: ">+1-900-123 4567</a>
+                  <a href="#">{WebSetting?.phoneNumber}</a>
                 </li>
               </ul>
               <ul className="social_media">
-                <li>
-                  <a href="#">
-                    <i className="icofont-facebook" />
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="icofont-whatsapp" />
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="icofont-instagram" />
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="icofont-linkedin" />
-                  </a>
-                </li>
+                {WebSetting?.socialMedia?.facebook && (
+                  <li>
+                    <Link to={WebSetting?.socialMedia?.facebook} target="_blank">
+                      <i className="icofont-facebook" />
+                    </Link>
+                  </li>
+                )}
+                {WebSetting?.socialMedia?.whatsapp && (
+                  <li>
+                    <Link to={WebSetting?.socialMedia?.whatsapp} target="_blank">
+                      <i className="icofont-whatsapp" />
+                    </Link>
+                  </li>
+                )}
+                {WebSetting?.socialMedia?.instagram && (
+                  <li>
+                    <Link to={WebSetting?.socialMedia?.instagram} target="_blank">
+                      <i className="icofont-instagram" />
+                    </Link>
+                  </li>
+                )}
+                {WebSetting?.socialMedia?.linkedin && (
+                  <li>
+                    <Link to={WebSetting?.socialMedia?.linkedin} target="_blank">
+                      <i className="icofont-linkedin" />
+                    </Link>
+                  </li>
+                )}
               </ul>
             </div>
           </div>

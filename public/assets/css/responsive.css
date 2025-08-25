@@ -1376,6 +1376,10 @@
     text-align: left;
   }
 
+  .blog_listings .listing_block .img img {
+    height: auto;
+  }
+
   .blog_listings .listing_block .blog_text {
     padding: 30px 0 20px 0;
   }
