@@ -1,10 +1,20 @@
 import { Link } from "react-router-dom";
-import { Queries } from "../../api";
+import { Mutations, Queries } from "../../api";
 import { ImagePath, ROUTES } from "../../constants";
+import { NewsLetterFormValues } from "../../types";
+import { Form, Formik, Field, ErrorMessage, FormikHelpers } from "formik";
+import { buildPayload } from "../../utils/FormHelpers";
+import { NewsLetterSchema } from "../../utils/ValidationSchemas";
 
 const Footer = () => {
+  const { mutate: useNewsLetter, isPending: isNewsLetterAdding } = Mutations.useNewsLetter();
   const { data } = Queries.useGetWebSetting();
   const WebSetting = data?.data;
+
+  const handleSubmit = async (values: NewsLetterFormValues, { resetForm }: FormikHelpers<NewsLetterFormValues>) => {
+    const payload = buildPayload(values);
+    useNewsLetter(payload, { onSuccess: () => resetForm() });
+  };
 
   return (
     <footer className="white_text" data-aos="fade-in" data-aos-duration={1500}>
@@ -23,15 +33,20 @@ const Footer = () => {
               <div className="news_letter">
                 <h3>Subscribe newsletter</h3>
                 <p>Be the first to recieve all latest post in your inbox</p>
-                <form>
-                  <div className="form-group">
-                    <input type="email" className="form-control" placeholder="Enter your email" />
-                    <button className="btn">
-                      <i className="icofont-paper-plane" />
-                    </button>
-                  </div>
-                  <p className="note">By clicking send link you agree to receive message.</p>
-                </form>
+                <Formik<NewsLetterFormValues> initialValues={{ email: "" }} validationSchema={NewsLetterSchema} onSubmit={handleSubmit}>
+                  {() => (
+                    <Form>
+                      <div className="form-group">
+                        <Field name="email" type="email" className="form-control" placeholder="Enter your email" />
+                        <button className="btn" type="submit">
+                          <i className="icofont-paper-plane" />
+                        </button>
+                      </div>
+                       <ErrorMessage name="email" component="div" className="text-danger small" />
+                      <p className="note">By clicking send link you agree to receive message.</p>
+                    </Form>
+                  )}
+                </Formik>
               </div>
               <ul className="contact_info">
                 <li>

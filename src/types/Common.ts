@@ -1,3 +1,5 @@
+import * as Yup from "yup";
+
 // ************ Common Api Data Type ***********
 
 import { Params } from "./Api";
@@ -32,4 +34,19 @@ export interface UseBasicTableFilterHelperOptions {
   initialParams?: Params;
   debounceDelay?: number;
   sortKey?: string;
+}
+
+// ************ Validation Yup schema ***********
+
+export type FieldTypeMap = {
+  string: Yup.StringSchema<string | null | undefined>;
+  number: Yup.NumberSchema<number | null | undefined>;
+  boolean: Yup.BooleanSchema<boolean | null | undefined>;
+  array: Yup.ArraySchema<any[], Yup.AnyObject>;
+};
+
+export interface FieldOptions<T> {
+  required?: boolean;
+  extraRules?: (schema: T) => T;
+  minItems?: number;
 }

@@ -21,7 +21,7 @@ const URL = {
     ALL: "/faq",
   },
   LEAD_FORM: {
-    Add: "/lead-form/add",
+    ADD: "/lead-form/add",
   },
   WEB_SETTING: {
     ALL: "/web-setting",
@@ -31,6 +31,12 @@ const URL = {
   },
   WORKSHOP_REGISTER: {
     ADD: "/course-register/add",
+  },
+  INTEREST: {
+    ALL: "/interest",
+  },
+  NEWS_LETTER: {
+    ADD: "/news-letter/add",
   },
 } as const;
 

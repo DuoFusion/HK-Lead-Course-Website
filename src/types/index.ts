@@ -6,3 +6,7 @@ export * from "./About";
 export * from "./Testomonials";
 export * from "./Faq";
 export * from "./WebSetting";
+export * from "./LeadForm";
+export * from "./Interest";
+export * from "./WorkshopRegister";
+export * from "./NewsLetter";

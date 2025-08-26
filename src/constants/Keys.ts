@@ -19,7 +19,7 @@ export const KEYS = {
     ALL: "faq",
   },
   LEAD_FORM: {
-    Add: "add-lead-form",
+    ADD: "add-lead-form",
   },
   WEB_SETTING: {
     ALL: "web-setting",
@@ -29,6 +29,12 @@ export const KEYS = {
   },
   WORKSHOP_REGISTER: {
     ADD: "add-workshop-register",
+  },
+  INTEREST: {
+    ALL: "interest",
+  },
+  NEWS_LETTER: {
+    ADD: "add-news-letter",
   },
 } as const;
 //

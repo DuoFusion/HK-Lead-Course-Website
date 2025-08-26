@@ -17,7 +17,7 @@ export const Router = createBrowserRouter([
       { path: ROUTES.HOME, element: <HomeContainer /> },
       { path: ROUTES.WORKSHOP.WORKSHOP, element: <WorkshopContainer /> },
       { path: `${ROUTES.WORKSHOP.WORKSHOP_DETAIL}/:id`, element: <WorkshopDetailContainer /> },
-      { path: ROUTES.WORKSHOP.WORKSHOP_REGISTER, element: <WorkshopRegisterContainer /> },
+      { path: `${ROUTES.WORKSHOP.WORKSHOP_REGISTER}/:id`, element: <WorkshopRegisterContainer /> },
       { path: ROUTES.COURSE.COURSE, element: <CourseContainer /> },
       { path: ROUTES.COURSE.COURSE_DETAIL, element: <CourseDetailContainer /> },
       { path: ROUTES.COURSE.COURSE_REGISTER, element: <CourseRegisterContainer /> },

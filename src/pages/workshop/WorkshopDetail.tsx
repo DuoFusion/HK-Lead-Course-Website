@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { ImagePath, ROUTES } from "../../constants";
 import { Queries } from "../../api";
 import { FormatDate, FormatTime } from "../../utils/DateFormatted";
@@ -77,6 +77,46 @@ const WorkshopDetailContainer = () => {
               <h3>“ Lorem Ipsum has been the industrys standard dummy text ever since when an unknown printer took a galley of type and scrambled.”</h3>
             </div> */}
             {/* <p>Standard dummy text ever since the when an unknown printer took a galley of type and scrambled. Survived not only five centuries, but also the leap into electronic typesetting, remaining essen tially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with software like Aldus PageMaker sheets containing It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages.</p> */}
+            {(WorkshopData?.faq?.length ?? 0) > 0 && (
+              <div className="row_am faq_section">
+                <div className="container">
+                  <div className="section_title" data-aos="fade-up" data-aos-duration={1500}>
+                    <span className="title_badge">Question &amp; Answer</span>
+                    <h2>
+                      <span>FAQs</span> - Frequently Asked Questions
+                    </h2>
+                  </div>
+                  {/* <div className="tab-content" id="myTabContent" data-aos="fade-up" data-aos-duration={1500}> */}
+                  {/* <div className="tab-pane fade show active" id="genral" role="tabpanel" aria-labelledby="genral-tab"> */}
+                  <div className="accordion" id="accordionGenral" data-aos="fade-up" data-aos-duration={1500}>
+                    <div className="row">
+                      <div className="col-md-12">
+                        {WorkshopData?.faq?.map((item, index) => (
+                          <div className="card" key={index}>
+                            <div className="card-header" id="headingOne">
+                              <h2 className="mb-0">
+                                <button className={`btn btn-link btn-block text-left  ${activeFaqId === index ? "active" : "collapsed"}`} type="button" onClick={() => handleChange(index)}>
+                                  {item.question}
+                                  <span className="icons">
+                                    <i className="icofont-plus" />
+                                    <i className="icofont-minus" />
+                                  </span>
+                                </button>
+                              </h2>
+                            </div>
+                            <div id="collapseOne" className={`collapse ${activeFaqId === index ? "show" : ""}`}>
+                              <div className="card-body">{item.answer}</div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  {/* </div> */}
+                  {/* </div> */}
+                </div>
+              </div>
+            )}
             <ul className="social_media">
               <li>
                 <a href="#">
@@ -99,8 +139,9 @@ const WorkshopDetailContainer = () => {
                 </a>
               </li>
             </ul>
+
             <div className="btn_block mt-4">
-              <Link to={ROUTES.WORKSHOP.WORKSHOP_REGISTER} className="btn puprple_btn ml-0">
+              <Link to={`${ROUTES.WORKSHOP.WORKSHOP_REGISTER}/${id}`} className="btn puprple_btn ml-0">
                 Continue
               </Link>
               <div className="btn_bottom" />
@@ -108,46 +149,6 @@ const WorkshopDetailContainer = () => {
           </div>
         </div>
       </section>
-      {(WorkshopData?.faq?.length ?? 0) > 0 && (
-        <section className="row_am faq_section">
-          <div className="container">
-            <div className="section_title" data-aos="fade-up" data-aos-duration={1500}>
-              <span className="title_badge">Question &amp; Answer</span>
-              <h2>
-                <span>FAQs</span> - Frequently Asked Questions
-              </h2>
-            </div>
-            {/* <div className="tab-content" id="myTabContent" data-aos="fade-up" data-aos-duration={1500}> */}
-            {/* <div className="tab-pane fade show active" id="genral" role="tabpanel" aria-labelledby="genral-tab"> */}
-            <div className="accordion" id="accordionGenral" data-aos="fade-up" data-aos-duration={1500}>
-              <div className="row">
-                <div className="col-md-12">
-                  {WorkshopData?.faq?.map((item, index) => (
-                    <div className="card" key={index}>
-                      <div className="card-header" id="headingOne">
-                        <h2 className="mb-0">
-                          <button className={`btn btn-link btn-block text-left  ${activeFaqId === index ? "active" : "collapsed"}`} type="button" onClick={() => handleChange(index)}>
-                            {item.question}
-                            <span className="icons">
-                              <i className="icofont-plus" />
-                              <i className="icofont-minus" />
-                            </span>
-                          </button>
-                        </h2>
-                      </div>
-                      <div id="collapseOne" className={`collapse ${activeFaqId === index ? "show" : ""}`}>
-                        <div className="card-body">{item.answer}</div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-            {/* </div> */}
-            {/* </div> */}
-          </div>
-        </section>
-      )}
     </>
   );
 };
