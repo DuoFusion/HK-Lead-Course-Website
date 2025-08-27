@@ -12,10 +12,10 @@ import KeyFeatures from "./KeyFeatures";
 const HomeContainer = () => {
   return (
     <Fragment>
-      <HomeBanner />
+      {/* <HomeBanner />
       <Mentors />
       <WorkshopSlider />
-      <KeyFeatures />
+      <KeyFeatures /> */}
       <AboutCourse />
       <About />
       <Testimonials />

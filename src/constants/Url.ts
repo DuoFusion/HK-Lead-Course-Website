@@ -38,6 +38,9 @@ const URL = {
   NEWS_LETTER: {
     ADD: "/news-letter/add",
   },
+  COURSES: {
+    ALL: "/courses",
+  },
 } as const;
 
 // Construct the URL object

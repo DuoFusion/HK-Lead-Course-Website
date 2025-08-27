@@ -36,5 +36,8 @@ export const KEYS = {
   NEWS_LETTER: {
     ADD: "add-news-letter",
   },
+  COURSES: {
+    ALL: "courses",
+  },
 } as const;
 //

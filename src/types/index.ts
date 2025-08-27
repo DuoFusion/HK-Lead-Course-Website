@@ -10,3 +10,4 @@ export * from "./LeadForm";
 export * from "./Interest";
 export * from "./WorkshopRegister";
 export * from "./NewsLetter";
+export * from "./Courses";

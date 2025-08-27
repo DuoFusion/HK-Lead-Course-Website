@@ -1,5 +1,5 @@
 import { KEYS, URL_KEYS } from "../constants";
-import { AboutApiResponse, BannerApiResponse, FaqApiResponse, InterestApiResponse, MentorsApiResponse, Params, TestomonialsApiResponse, WebSettingApiResponse } from "../types";
+import { AboutApiResponse, BannerApiResponse, CoursesApiResponse, FaqApiResponse, InterestApiResponse, MentorsApiResponse, Params, TestomonialsApiResponse, WebSettingApiResponse } from "../types";
 import { SingleWorkshopApiResponse, WorkshopApiResponse } from "../types/Workshop";
 import Get from "./Get";
 import { useApiGet } from "./hooks";
@@ -29,6 +29,9 @@ const Queries = {
 
   // ************ Interest ***********
   useGetInterest: () => useApiGet<InterestApiResponse>([KEYS.INTEREST.ALL], () => Get(URL_KEYS.INTEREST.ALL)),
+
+  // ************ Courses ***********
+  useGetCourses: (params: Params) => useApiGet<CoursesApiResponse>([KEYS.COURSES.ALL, params], () => Get(URL_KEYS.COURSES.ALL, params)),
 };
 
 export default Queries;
