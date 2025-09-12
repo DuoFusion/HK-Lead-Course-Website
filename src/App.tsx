@@ -13,14 +13,14 @@ import "../public/assets/css/responsive.css";
 import "../public/assets/css/style-star-background.css";
 import "../public/assets/css/swiper-custom.css";
 import { Router } from "./routers";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+// import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 function App() {
   const [queryClient] = useState(() => new QueryClient());
   return (
     <QueryClientProvider client={queryClient}>
       <RouterProvider router={Router} />
-      <ReactQueryDevtools buttonPosition="bottom-right" />
+      {/* <ReactQueryDevtools buttonPosition="bottom-right" /> */}
     </QueryClientProvider>
   );
 }
