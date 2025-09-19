@@ -92,35 +92,6 @@ const Testimonials = () => {
                           <p>{item?.message}</p>
                         </div>
                       ))}
-                    <div className="review_block" data-aos="fade-up" data-aos-duration={1500}>
-                      <div className="coustomer_info">
-                        <div className="avtar">
-                          <img src={`${ImagePath}review3..png`} alt="image" />
-                          <div className="text">
-                            <h3>Maria</h3>
-                            <span>Company Inc</span>
-                          </div>
-                        </div>
-                        <div className="star">
-                          <span>
-                            <i className="icofont-star" />
-                          </span>
-                          <span>
-                            <i className="icofont-star" />
-                          </span>
-                          <span>
-                            <i className="icofont-star" />
-                          </span>
-                          <span>
-                            <i className="icofont-star" />
-                          </span>
-                          <span>
-                            <i className="icofont-star" />
-                          </span>
-                        </div>
-                      </div>
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente culpa, dolores ullam laudantium deleniti ipsa qui saepe voluptatum nam pariatur? Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur et, nemo distinctio eum omnis quam!</p>
-                    </div>
                   </div>
                 </div>
               </div>

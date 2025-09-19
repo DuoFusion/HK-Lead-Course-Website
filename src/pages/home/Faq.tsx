@@ -22,7 +22,7 @@ const Faq = () => {
             </div>
             {/* <div className="tab-content" id="myTabContent" data-aos="fade-up" data-aos-duration={1500}> */}
             {/* <div className="tab-pane fade show active" id="genral" role="tabpanel" aria-labelledby="genral-tab"> */}
-            <div className="accordion" id="accordionGenral" data-aos="fade-up" data-aos-duration={1500}>
+            <div className="accordion faq-box" id="accordionGenral" data-aos="fade-up" data-aos-duration={1500}>
               <div className="row">
                 <div className="col-md-12">
                   {All_Faq?.faq_data.map((item, index) => (

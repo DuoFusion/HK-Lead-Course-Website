@@ -17,7 +17,7 @@ const WorkshopDetailContainer = () => {
   return (
     <>
       <section className="blog_detail_section">
-        <div className="container container-sm">
+        <div className="container container-xl">
           <div className="blog_head">
             <div className="tags_info">
               <span className="tag">Mobile app</span>
@@ -32,7 +32,7 @@ const WorkshopDetailContainer = () => {
               <img src={WorkshopData?.instructorImage ?? `${ImagePath}user.png`} alt="image" />
               <div className="text">
                 <h3>{WorkshopData?.instructorName}</h3>
-                {/* <span>Copy editor</span> */}
+                <span>Instructor</span>
               </div>
             </div>
           </div>
@@ -78,7 +78,7 @@ const WorkshopDetailContainer = () => {
             </div> */}
             {/* <p>Standard dummy text ever since the when an unknown printer took a galley of type and scrambled. Survived not only five centuries, but also the leap into electronic typesetting, remaining essen tially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with software like Aldus PageMaker sheets containing It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages.</p> */}
             {(WorkshopData?.faq?.length ?? 0) > 0 && (
-              <div className="row_am faq_section">
+              <div className="row_am faq_section m-0">
                 <div className="container">
                   <div className="section_title" data-aos="fade-up" data-aos-duration={1500}>
                     <span className="title_badge">Question &amp; Answer</span>

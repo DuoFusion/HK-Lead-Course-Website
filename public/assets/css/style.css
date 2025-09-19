@@ -2893,6 +2893,17 @@ footer .download_side .app_btn li a img {
   margin-bottom: -20px;
 }
 
+.faq_section .faq-box {
+  width: 100%;
+  min-height: 300px;
+  max-height: 530px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.faq_section .faq-box::-webkit-scrollbar {
+  width: 0;
+}
+
 .faq_section .card {
   border: none;
   background-color: #fff;
@@ -3271,13 +3282,16 @@ footer .download_side .app_btn li a img {
   background: var(--gradient);
   color: var(--text-white);
 }
-
+.blog_listings .row > div {
+   padding: 15px; 
+}
 .blog_listings .listing_block {
   /* flex-direction: column; */
-  padding: 30px;
+  padding: 25px;
   border-radius: 20px;
   background-color: var(--bg-white);
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
+  height: 100%;
 }
 
 .blog_listings .listing_block:not(:last-child) {
@@ -3291,7 +3305,8 @@ footer .download_side .app_btn li a img {
 .blog_listings .listing_block .img img {
   width: 100%;
   border-radius: 20px;
-  height: 300px;
+  min-height: auto;
+  max-height: 400px;
   object-position: center;
   object-fit: cover;
 }
@@ -3299,7 +3314,7 @@ footer .download_side .app_btn li a img {
 .blog_listings .listing_block .blog_text {
   /* width: calc(100% - 600px); */
   /* padding: 0 15px 0 60px; */
-  padding: 30px 0 20px 0;
+  padding: 20px 0 10px 0;
 }
 
 .blog_listings .listing_block .blog_text .tag {
@@ -3314,7 +3329,7 @@ footer .download_side .app_btn li a img {
 .blog_listings .listing_block .blog_text h2 {
   font-size: 26px;
   font-weight: 700;
-  margin: 25px 0;
+  margin: 20px 0 0 0;
 }
 
 .blog_listings .listing_block .blog_text h2 a {
@@ -3322,7 +3337,7 @@ footer .download_side .app_btn li a img {
   overflow: hidden;
   display: -webkit-box;
   text-overflow: ellipsis;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }
 
@@ -3374,7 +3389,7 @@ footer .download_side .app_btn li a img {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-top: 25px;
+  margin-top: 20px;
 }
 
 .blog_listings .listing_block .authore_info .avtar img {
@@ -3438,7 +3453,7 @@ footer .download_side .app_btn li a img {
 }
 
 .blog_head {
-  margin-bottom: 45px;
+  margin-bottom: 20px;
 }
 
 .blog_head .tags_info {
@@ -3480,16 +3495,16 @@ footer .download_side .app_btn li a img {
 }
 
 .blog_head h1 {
-  font-size: 50px;
+  font-size: 40px;
   font-weight: 700;
-  margin: 15px 0 30px 0;
+  margin: 15px 0 0 0;
 }
 
 .blog_head .avtar {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-top: 25px;
+  margin-top: 15px;
 }
 
 .blog_head .avtar img {
@@ -4130,7 +4145,7 @@ footer .download_side .app_btn li a img {
   color: var(--text-white);
 }
 
-.ant-rate-star svg{
+.ant-rate-star svg {
   width: 17px !important;
   height: 17px !important;
 }

@@ -33,19 +33,21 @@ const WorkshopContainer = () => {
         <div className="blog_listings">
           <div className="row">
             {WorkshopData?.workshop_data?.map((item, index) => (
-              <div className="col-lg-6" key={index}>
+              <div className="col-xl-4 col-lg-6" key={index}>
                 <div className="listing_block" data-aos="fade-up" data-aos-duration={1500}>
                   <Link to={`${ROUTES.WORKSHOP.WORKSHOP_DETAIL}/${item?._id}`} className="img">
                     <img src={item.workshopImage ?? `${ImagePath}/blog1.png`} alt="image" />
                   </Link>
                   <div className="blog_text">
-                    <span className="tag">Mobile app</span>
+                    <div className="d-flex justify-content-between">
+                      <span className="tag">Mobile app</span>
+                      <Link to={`${ROUTES.WORKSHOP.WORKSHOP_DETAIL}/${item?._id}`}>
+                        Read more <i className="icofont-arrow-right" />
+                      </Link>
+                    </div>
                     <h2>
                       <Link to={`${ROUTES.WORKSHOP.WORKSHOP_DETAIL}/${item?._id}`}>{item?.title}</Link>
                     </h2>
-                    <Link to={`${ROUTES.WORKSHOP.WORKSHOP_DETAIL}/${item?._id}`}>
-                      Read more <i className="icofont-arrow-right" />
-                    </Link>
                   </div>
                   <div className="authore_info">
                     <ul className="blog_info">
@@ -57,14 +59,14 @@ const WorkshopContainer = () => {
                       <img src={item?.instructorImage ?? `${ImagePath}user.png`} alt="image" />
                       <div className="text">
                         <h3>{item?.instructorName}</h3>
-                        {/* <span>Copy editor</span> */}
+                        <span>Instructor</span>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             ))}
-            <div className="col-lg-6">
+            {/* <div className="col-lg-6">
               <div className="listing_block" data-aos="fade-up" data-aos-duration={1500}>
                 <a href="#" className="img">
                   <img src={`${ImagePath}/blog2.png`} alt="image" />
@@ -93,12 +95,12 @@ const WorkshopContainer = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
         {/* Pagination */}
         <div className="pagination_block" data-aos="fade-in" data-aos-duration={1500}>
-          <Pagination total={WorkshopData?.totalData} pageSize={pageSize} current={pageNumber} align="center" itemRender={itemRender} onChange={handlePaginationChange}/>
+          <Pagination total={WorkshopData?.totalData} pageSize={pageSize} current={pageNumber} align="center" itemRender={itemRender} onChange={handlePaginationChange} />
         </div>
       </div>
     </section>

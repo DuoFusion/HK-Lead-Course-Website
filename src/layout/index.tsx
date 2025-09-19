@@ -11,12 +11,13 @@ const Layout = () => {
 
   useEffect(() => {
     Aos.init({ once: false });
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
   return (
     <Fragment>
       <Loader />
       <Header />
-      <div className="page_wrapper" style={{ overflowX: location.pathname === "/" ? "visible" : "hidden"}}>
+      <div className="page_wrapper" style={{ overflowX: location.pathname === "/" ? "visible" : "hidden" }}>
         <Outlet />
         <Footer />
         <TapTop />
