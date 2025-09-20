@@ -17,7 +17,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="white_text" data-aos="fade-in" data-aos-duration={1500}>
+    <footer className="white_text" data-aos="fade-in" data-aos-duration={1300}>
       <div className="footer_overlay">
         <img src={`${ImagePath}overlay-bg2-reverse.svg`} alt="img" />
       </div>
@@ -111,7 +111,7 @@ const Footer = () => {
         <div className="container">
           <div className="ft_inner">
             <div className="copy_text">
-              <p>© Copyrights 2023. All rights reserved.</p>
+              <p>© Copyrights 2025. All rights reserved.</p>
             </div>
             <ul className="links">
               <li>
@@ -124,9 +124,7 @@ const Footer = () => {
             <div className="design_by">
               <p>
                 Crafted by{" "}
-                <a href="https://themeforest.net/user/kalanidhithemes" target="blank">
-                  Kalanidhi Themes
-                </a>
+               <Link to="https://hkdigiverse.com/" target="_blank"> HK Digiverse &amp; IT Consultancy Pvt Ltd.</Link>
               </p>
             </div>
           </div>

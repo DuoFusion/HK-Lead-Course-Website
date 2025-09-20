@@ -27,7 +27,7 @@ const WorkshopContainer = () => {
       <div className="container">
         <div className="section_title" data-aos="fade-up" data-aos-duration={1500}>
           <h2>
-            <span> Workshop</span>
+            <span>Workshop</span>
           </h2>
         </div>
         <div className="blog_listings">
@@ -36,7 +36,7 @@ const WorkshopContainer = () => {
               <div className="col-xl-4 col-lg-6" key={index}>
                 <div className="listing_block" data-aos="fade-up" data-aos-duration={1500}>
                   <Link to={`${ROUTES.WORKSHOP.WORKSHOP_DETAIL}/${item?._id}`} className="img">
-                    <img src={item.workshopImage ?? `${ImagePath}/blog1.png`} alt="image" />
+                    <img src={item.thumbnailImage ?? `${ImagePath}/blog1.png`} alt="image" />
                   </Link>
                   <div className="blog_text">
                     <div className="d-flex justify-content-between">

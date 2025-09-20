@@ -525,6 +525,7 @@ header.fixed .navbar {
 .navbar-expand-lg .navbar-nav .has_dropdown .sub_menu {
   position: absolute;
   top: 100%;
+  left: 0;
   background-color: var(--bg-white);
   border-radius: 0 0 10px 10px;
   min-width: 210px;
@@ -534,6 +535,10 @@ header.fixed .navbar {
   opacity: 0;
   pointer-events: none;
   border-bottom: 3px solid var(--primery);
+  min-height: auto;
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .navbar-expand-lg .navbar-nav .has_dropdown .sub_menu ul {
@@ -547,6 +552,11 @@ header.fixed .navbar {
   transition: 0.4s all;
   line-height: 35px;
   font-weight: 600;
+  overflow: hidden;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 
 .navbar-expand-lg .navbar-nav .has_dropdown .sub_menu ul li a:hover {
@@ -3283,7 +3293,7 @@ footer .download_side .app_btn li a img {
   color: var(--text-white);
 }
 .blog_listings .row > div {
-   padding: 15px; 
+  padding: 15px;
 }
 .blog_listings .listing_block {
   /* flex-direction: column; */

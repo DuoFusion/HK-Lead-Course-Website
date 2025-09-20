@@ -1,12 +1,53 @@
-import { Link, useLocation } from "react-router-dom";
-import { ROUTES } from "../../constants";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Href, ROUTES } from "../../constants";
 import UseStickyBar from "../../utils/UseStickyBar";
 import { useState } from "react";
+import { Queries } from "../../api";
 
 const Header = () => {
-  const [isOpen, setIsOpen ] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const fix = UseStickyBar(250);
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const { data: Workshop } = Queries.useGetWorkshop({ blockFilter: true });
+  const WorkshopData = Workshop?.data;
+  const { data: Course } = Queries.useGetCourse({ blockFilter: true });
+  const CourseData = Course?.data;
+
+  const renderDropdown = (label: string, menuKey: string, data: any, baseRoute: string, detailRoute: string) => {
+    if (!data?.totalData) return null;
+    const isSingle = data.totalData === 1;
+
+    const handleNavigate = () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      navigate(isSingle ? `${detailRoute}/${data[`${menuKey}_data`]?.[0]?._id}` : baseRoute);
+    };
+
+    return (
+      <li className="nav-item has_dropdown">
+        <Link className="nav-link" to={Href} onClick={handleNavigate}>
+          {label}
+        </Link>
+        {!isSingle && (
+          <span className="drp_btn">
+            <i className="icofont-rounded-down" />
+          </span>
+        )}
+        {!isSingle && (
+          <div className="sub_menu">
+            <ul>
+              {data[`${menuKey}_data`]?.map((item: any) => (
+                <li key={item._id}>
+                  <Link to={`${detailRoute}/${item._id}`}>{item.title}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </li>
+    );
+  };
 
   return (
     <header className={`${location.pathname !== "/" ? "bg_color" : ""} ${fix ? "fix_style fixed" : ""}`}>
@@ -27,16 +68,8 @@ const Header = () => {
           </button>
           <div className={`collapse navbar-collapse ${isOpen ? "show" : ""}`} id="navbarSupportedContent">
             <ul className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <Link className="nav-link" to={ROUTES.WORKSHOP.WORKSHOP}>
-                  Workshop
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to={ROUTES.COURSE.COURSE}>
-                  Course
-                </Link>
-              </li>
+              {renderDropdown("Workshop", "workshop", WorkshopData, ROUTES.WORKSHOP.WORKSHOP, ROUTES.WORKSHOP.WORKSHOP_DETAIL)}
+              {renderDropdown("Course", "course", CourseData, ROUTES.COURSE.COURSE, ROUTES.COURSE.COURSE_DETAIL)}
             </ul>
           </div>
         </nav>

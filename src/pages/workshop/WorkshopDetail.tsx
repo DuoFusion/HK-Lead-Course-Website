@@ -77,7 +77,7 @@ const WorkshopDetailContainer = () => {
               <h3>“ Lorem Ipsum has been the industrys standard dummy text ever since when an unknown printer took a galley of type and scrambled.”</h3>
             </div> */}
             {/* <p>Standard dummy text ever since the when an unknown printer took a galley of type and scrambled. Survived not only five centuries, but also the leap into electronic typesetting, remaining essen tially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with software like Aldus PageMaker sheets containing It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages.</p> */}
-            {(WorkshopData?.faq?.length ?? 0) > 0 && (
+            {((WorkshopData?.faq?.length ?? 0) > 0 &&  WorkshopData?.faq?.[0]?.question !== null)  && (
               <div className="row_am faq_section m-0">
                 <div className="container">
                   <div className="section_title" data-aos="fade-up" data-aos-duration={1500}>

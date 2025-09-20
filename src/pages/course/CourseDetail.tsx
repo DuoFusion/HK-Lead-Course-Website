@@ -1,101 +1,122 @@
-import React from "react";
+import { useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import { Queries } from "../../api";
 import { ImagePath, ROUTES } from "../../constants";
-import { Link } from "react-router-dom";
 
 const CourseDetailContainer = () => {
+  const [activeFaqId, setActiveFaqId] = useState<number | null>(null);
+  const { id } = useParams();
+
+  const { data: Course } = Queries.useGetSingleCourse(id);
+  const CourseData = Course?.data;
+  console.log("CourseData", CourseData);
+
+  const handleChange = (id: number) => setActiveFaqId((prev) => (prev === id ? null : id));
+
   return (
-    <section className="blog_detail_section">
-      <div className="container container-sm">
-        <div className="blog_head">
-          <div className="tags_info">
-            <span className="tag">Mobile app</span>
-            <ul className="blog_info">
-              <li>May 12, 2023</li>
-              <li>5 Comments</li>
-              <li>750 Views</li>
-            </ul>
+    <>
+      <section className="blog_detail_section">
+        <div className="container container-xl">
+          <div className="blog_head">
+            <div className="tags_info">
+              <span className="tag">Mobile app</span>
+              <ul className="blog_info">
+                {/* <li>{FormatDate(CourseData?.date)}</li> */}
+                {/* <li>{FormatTime(CourseData?.time)}</li> */}
+                <li>{CourseData?.duration}</li>
+              </ul>
+            </div>
+            <h1>{CourseData?.title}</h1>
+            <div className="avtar">
+              <img src={CourseData?.instructorImage ?? `${ImagePath}user.png`} alt="image" />
+              <div className="text">
+                <h3>{CourseData?.instructorName}</h3>
+                <span>Instructor</span>
+              </div>
+            </div>
           </div>
-          <h1>Effective ways to monetize app for better perfomance.</h1>
-          <div className="avtar">
-            <img src={`${ImagePath}authore_01.png`} alt="image" />
-            <div className="text">
-              <h3>Willium Joy</h3>
-              <span>Copy editor</span>
+          <div className="blog_body">
+            <div className="img" data-aos="fade-in" data-aos-duration={1500}>
+              <img src={CourseData?.courseImage ?? `${ImagePath}blog_single_01.png`} alt="image" />
+            </div>
+            <p>{CourseData?.shortDescription}</p>
+            <ul className="listings">
+              <li>
+                <span className="icon">
+                  <i className="icofont-check-circled" />
+                </span>
+                {/* <p>{CourseData?.syllabus}</p> */}
+              </li>
+            </ul>
+            {((CourseData?.faq?.length ?? 0) > 0 &&  CourseData?.faq?.[0]?.question !== null) && (
+              <div className="row_am faq_section m-0">
+                <div className="container">
+                  <div className="section_title" data-aos="fade-up" data-aos-duration={2000}>
+                    <span className="title_badge">Question &amp; Answer</span>
+                    <h2>
+                      <span>FAQs</span> - Frequently Asked Questions
+                    </h2>
+                  </div>
+                  <div className="accordion" id="accordionGenral" data-aos="fade-up" data-aos-duration={2000}>
+                    <div className="row">
+                      <div className="col-md-12">
+                        {CourseData?.faq?.map((item, index) => (
+                          <div className="card" key={index}>
+                            <div className="card-header" id="headingOne">
+                              <h2 className="mb-0">
+                                <button className={`btn btn-link btn-block text-left  ${activeFaqId === index ? "active" : "collapsed"}`} type="button" onClick={() => handleChange(index)}>
+                                  {item.question}
+                                  <span className="icons">
+                                    <i className="icofont-plus" />
+                                    <i className="icofont-minus" />
+                                  </span>
+                                </button>
+                              </h2>
+                            </div>
+                            <div id="collapseOne" className={`collapse ${activeFaqId === index ? "show" : ""}`}>
+                              <div className="card-body">{item.answer}</div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+            <ul className="social_media">
+              <li>
+                <a href="#">
+                  <i className="icofont-facebook" />
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i className="icofont-twitter" />
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i className="icofont-instagram" />
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i className="icofont-pinterest" />
+                </a>
+              </li>
+            </ul>
+
+            <div className="btn_block mt-4">
+              <Link to={`${ROUTES.WORKSHOP.WORKSHOP_REGISTER}/${id}`} className="btn puprple_btn ml-0">
+                Continue
+              </Link>
+              <div className="btn_bottom" />
             </div>
           </div>
         </div>
-        <div className="blog_body">
-          <div className="img" data-aos="fade-in" data-aos-duration={1500}>
-            <img src={`${ImagePath}blog_single_01.png`} alt="image" />
-          </div>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry lorem Ipsum has been the industrys standard dummy text ever since the when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker.</p>
-          <ul className="listings">
-            <li>
-              <span className="icon">
-                <i className="icofont-check-circled" />
-              </span>
-              <p>Lorem Ipsum is simply dummy text</p>
-            </li>
-            <li>
-              <span className="icon">
-                <i className="icofont-check-circled" />
-              </span>
-              <p>The printing and typesetting industry</p>
-            </li>
-            <li>
-              <span className="icon">
-                <i className="icofont-check-circled" />
-              </span>
-              <p>Has been the industrys dummy</p>
-            </li>
-            <li>
-              <span className="icon">
-                <i className="icofont-check-circled" />
-              </span>
-              <p>Text ever since the when an unknown</p>
-            </li>
-          </ul>
-          <h2>Article sub title goes here</h2>
-          <p>Typesetting industry lorem Ipsum has been the industrys standard dummy text ever since the when an unknown printer took a galley of type and scrambled. Survived not only five centuries, but also the leap into electronic typesetting, remaining essen tially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with software like Aldus PageMaker.</p>
-          <div className="yt_video" data-aos="fade-in" data-aos-duration={1500}>
-            <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1&mute=1" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
-          </div>
-          <p>Lorem Ipsum has been the industrys standard dummy text ever since the when an unknown printer took a galley of type and scrambled. Survived not only five centuries, but also the leap into electronic typesetting, remaining essen tially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with software like Aldus PageMaker sheets containing.</p>
-          <div className="highlight_text">
-            <h3>“ Lorem Ipsum has been the industrys standard dummy text ever since when an unknown printer took a galley of type and scrambled.”</h3>
-          </div>
-          <p>Standard dummy text ever since the when an unknown printer took a galley of type and scrambled. Survived not only five centuries, but also the leap into electronic typesetting, remaining essen tially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with software like Aldus PageMaker sheets containing It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages.</p>
-          <ul className="social_media">
-            <li>
-              <a href="#">
-                <i className="icofont-facebook" />
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i className="icofont-twitter" />
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i className="icofont-instagram" />
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i className="icofont-pinterest" />
-              </a>
-            </li>
-          </ul>
-          <div className="btn_block mt-4">
-            <Link to={ROUTES.COURSE.COURSE_REGISTER} className="btn puprple_btn ml-0">
-              Continue
-            </Link>
-            <div className="btn_bottom" />
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

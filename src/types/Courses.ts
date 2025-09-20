@@ -50,8 +50,8 @@ export interface CoursesFormValues {
   mrp?: number;
   discount?: string;
   shortDescription?: string;
-  instructorImage?: string | string[];
-  courseImage?: string | string[];
+  instructorImage?: string ;
+  courseImage?: string;
   faq?: FAQType[];
   listOfLecture?: ListOfLectureType[];
   testimonials?: TestimonialsType[];
@@ -71,4 +71,8 @@ export interface CoursesDataResponse extends PageStatus {
 
 export interface CoursesApiResponse extends MessageStatus {
   data: CoursesDataResponse;
+}
+
+export interface SingleCourseApiResponse extends MessageStatus {
+  data: CoursesType;
 }

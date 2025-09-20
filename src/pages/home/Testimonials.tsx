@@ -70,7 +70,7 @@ const Testimonials = () => {
                                 {item.role && <span>{item.role}</span>}
                               </div>
                             </div>
-                            <Rate allowHalf defaultValue={item.rating} />
+                            <Rate allowHalf defaultValue={item.rating} disabled/>
                             {/* <div className="star">
                         <span>
                           <i className="icofont-star" />

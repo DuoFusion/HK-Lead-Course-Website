@@ -40,6 +40,7 @@ const URL = {
   },
   COURSES: {
     ALL: "/courses",
+    SINGLE: "/courses",
   },
 } as const;
 

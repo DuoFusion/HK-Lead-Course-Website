@@ -38,6 +38,7 @@ export const KEYS = {
   },
   COURSES: {
     ALL: "courses",
+    SINGLE: "courses-single",
   },
 } as const;
 //

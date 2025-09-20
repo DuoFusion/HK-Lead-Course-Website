@@ -8,7 +8,7 @@ import WorkshopRegisterContainer from "../pages/workshop/WorkshopRegister";
 import CourseContainer from "../pages/course";
 import CourseDetailContainer from "../pages/course/CourseDetail";
 import CourseRegisterContainer from "../pages/course/CourseRegister";
-// import Error from "../Pages/error";
+import Error from "../pages/error";
 
 export const Router = createBrowserRouter([
   {
@@ -19,9 +19,9 @@ export const Router = createBrowserRouter([
       { path: `${ROUTES.WORKSHOP.WORKSHOP_DETAIL}/:id`, element: <WorkshopDetailContainer /> },
       { path: `${ROUTES.WORKSHOP.WORKSHOP_REGISTER}/:id`, element: <WorkshopRegisterContainer /> },
       { path: ROUTES.COURSE.COURSE, element: <CourseContainer /> },
-      { path: ROUTES.COURSE.COURSE_DETAIL, element: <CourseDetailContainer /> },
+      { path: `${ROUTES.COURSE.COURSE_DETAIL}/:id`, element: <CourseDetailContainer /> },
       { path: ROUTES.COURSE.COURSE_REGISTER, element: <CourseRegisterContainer /> },
+      { path: "*", element: <Error /> },
     ],
   },
-  // { path: "*", element: <Error /> },
 ]);

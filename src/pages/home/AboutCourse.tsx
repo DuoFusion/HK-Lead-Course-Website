@@ -3,7 +3,7 @@ import { Queries } from "../../api";
 import { AboutCourseSliderSetting } from "../../data";
 
 const AboutCourse = () => {
-  const { data: Courses } = Queries.useGetCourses({ blockFilter: true });
+  const { data: Courses } = Queries.useGetCourse({ blockFilter: true });
   const All_Courses = Courses?.data;
   return (
     <>
@@ -13,7 +13,7 @@ const AboutCourse = () => {
             {/* container start */}
             <div className="container">
               <div className="section_title" data-aos="fade-up" data-aos-duration={1500} data-aos-delay={300}>
-                <span className="title_badge">About</span>
+                <span className="title_badge">Course</span>
                 <h2>About Course</h2>
               </div>
 
